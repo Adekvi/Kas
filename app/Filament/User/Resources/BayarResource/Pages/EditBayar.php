@@ -3,6 +3,7 @@
 namespace App\Filament\User\Resources\BayarResource\Pages;
 
 use App\Filament\User\Resources\BayarResource;
+use App\Filament\User\Resources\BayarResource\Pages;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 

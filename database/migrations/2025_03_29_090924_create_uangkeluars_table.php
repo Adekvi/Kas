@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('keperluan');
             $table->string('nominal');
             $table->foreignId('bulan_id')->nullable()->constrained('bulans')->nullOnDelete();
+            $table->foreignId('tahun_id')->nullable()->constrained('tahuns')->nullOnDelete();
             $table->boolean('status')->default(false);
             $table->string('keterangan')->nullable();
             $table->timestamps();

@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources\Admin\Kas;
 
-use App\Filament\Resources\Kas\SumbanganResource\Pages;
-use App\Filament\Resources\Kas\SumbanganResource\RelationManagers;
+use App\Filament\Resources\Admin\Kas\SumbanganResource\Pages;
+use App\Filament\Resources\Admin\Kas\SumbanganResource\RelationManagers;
 use App\Models\Admin\Sumbangan;
 use Filament\Forms;
 use Filament\Forms\Form;

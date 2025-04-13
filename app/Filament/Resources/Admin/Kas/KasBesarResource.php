@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources\Admin\Kas;
 
-use App\Filament\Resources\Kas\KasBesarResource\Pages;
-use App\Filament\Resources\Kas\KasBesarResource\RelationManagers;
+use App\Filament\Resources\Admin\Kas\KasBesarResource\Pages;
+use App\Filament\Resources\Admin\Kas\KasBesarResource\RelationManagers;
 use App\Models\Admin\Kasbesar;
 use App\Models\Admin\Sumbangan;
 use App\Models\Admin\Uangkeluar;

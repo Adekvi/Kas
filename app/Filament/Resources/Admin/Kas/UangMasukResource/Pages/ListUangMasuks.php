@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Kas\UangMasukResource\Pages;
+namespace App\Filament\Resources\Admin\Kas\UangMasukResource\Pages;
 
 use App\Filament\Resources\Admin\Kas\UangMasukResource;
 use Filament\Actions;

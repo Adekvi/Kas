@@ -6,17 +6,21 @@ use App\Filament\User\Resources\BayarResource\Pages;
 use App\Filament\User\Resources\BayarResource\RelationManagers;
 use App\Models\Admin\Uangmasuk;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BayarResource extends Resource
 {
@@ -37,11 +41,17 @@ class BayarResource extends Resource
             ->schema([
                 Forms\Components\Grid::make(3)
                     ->schema([
-                        TextInput::make('warga_id')
-                            ->label('Nama Warga')
-                            ->default(fn() => Auth::user()->warga ? Auth::user()->warga->nama : '')
-                            ->disabled(), // Menonaktifkan agar pengguna tidak bisa mengubahnya
-                        // ->hidden(),
+
+                        Hidden::make('warga_id')
+                            ->default(function () {
+                                $name = Auth::user()?->name;
+
+                                // Cari Warga berdasarkan nama yang sama
+                                $warga = \App\Models\Admin\Warga::where('nama', $name)->first();
+
+                                return $warga?->id;
+                            })
+                            ->required(),
 
                         Forms\Components\TextInput::make('jumlah')
                             ->label('Jumlah')
@@ -55,7 +65,19 @@ class BayarResource extends Resource
                             ->multiple()
                             ->preload()
                             ->required(),
+
                     ]),
+
+                FileUpload::make('foto')
+                    ->label('Bukti Pembayaran')
+                    ->image()
+                    ->imageEditor()
+                    ->imageCropAspectRatio('1:1')
+                    ->imagePreviewHeight('150')
+                    ->directory('bukti-pembayaran')
+                    ->visibility('public')
+                    ->openable()
+                    ->previewable(),
 
                 Forms\Components\Textarea::make('keterangan')
                     ->label('Keterangan')
@@ -69,14 +91,6 @@ class BayarResource extends Resource
             ]);
     }
 
-    // public function create(Request $request)
-    // {
-    //     $request->merge(['warga_id' => Auth::user()->warga_id]);
-
-    //     $uangMasuk = UangMasuk::create($request->all()); // Menyimpan data ke tabel uangmasuks
-    //     return redirect()->route('success.route');
-    // }
-
     public static function table(Table $table): Table
     {
         return $table
@@ -87,11 +101,6 @@ class BayarResource extends Resource
                         fn($record, $livewire) => (($livewire->getTablePage() - 1) * $livewire->getTableRecordsPerPage()) +
                             $livewire->getTableRecords()->search($record) + 1
                     ),
-                // Tables\Columns\TextColumn::make('nama_warga')
-                //     ->label('Nama')
-                //     ->default(fn() => Auth::user()->warga?->nama ?? Auth::user()->name)
-                //     ->sortable()
-                //     ->searchable(),
 
                 Tables\Columns\TextColumn::make('jumlah')
                     ->label('Jumlah')
@@ -108,16 +117,22 @@ class BayarResource extends Resource
                     ->limit(50)
                     ->searchable(),
 
-                // // ✅ Menampilkan status sebagai kalimat
-                // Tables\Columns\TextColumn::make('status')
-                //     ->label('Status')
-                //     ->formatStateUsing(fn($state) => $state ? 'Sudah dikonfirmasi' : 'Belum dikonfirmasi')
-                //     ->sortable(),
 
-                // // ✅ Toggle untuk mengubah status langsung dari tabel
-                // Tables\Columns\ToggleColumn::make('status')
-                //     ->label('Ubah Status')
-                //     ->sortable(),
+                Tables\Columns\TextColumn::make('foto')
+                    ->label('Bukti Pembayaran')
+                    ->formatStateUsing(fn($state) => $state ? basename($state) : 'Tidak ada file')
+                    ->icon('heroicon-o-eye')
+                    ->tooltip('Klik untuk lihat gambar'),
+
+                // ✅ Menampilkan status sebagai kalimat
+                Tables\Columns\TextColumn::make('status')
+                    ->label('Status')
+                    ->formatStateUsing(fn($state) => $state ? 'Berhasil' : 'Menunggu')
+                    ->icon(fn($state) => $state ? 'heroicon-o-check-circle' : 'heroicon-o-clock')
+                    ->iconColor(fn($state) => $state ? 'success' : 'warning')
+                    ->badge()
+                    ->sortable(),
+
             ])
             ->filters([
                 //
@@ -137,7 +152,6 @@ class BayarResource extends Resource
                 //     ->deselectRecordsAfterCompletion(),
             ]);
     }
-
 
     public static function getRelations(): array
     {

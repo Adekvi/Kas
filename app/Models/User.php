@@ -55,6 +55,6 @@ class User extends Authenticatable
 
     public function warga()
     {
-        return $this->belongsTo(Warga::class, 'warga_id', 'id'); // Sesuaikan dengan kolom foreign key yang benar
+        return $this->belongsTo(Warga::class, 'warga_id'); // foreign key warga_id di tabel users
     }
 }

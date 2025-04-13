@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\WargaResource\Pages;
+namespace App\Filament\Resources\Admin\Master\WargaResource\Pages;
 
 use App\Filament\Resources\Admin\Master\WargaResource;
 use Filament\Actions;

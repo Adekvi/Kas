@@ -11,6 +11,11 @@ class Bulan extends Model
 {
     protected $guarded = [];
 
+    public function tahun()
+    {
+        return $this->belongsTo(Tahun::class, 'tahun_id');
+    }
+
     public function uangmasuks()
     {
         return $this->belongsToMany(Uangmasuk::class, 'bulanmasuks');

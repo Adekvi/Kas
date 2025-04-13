@@ -2,18 +2,21 @@
 
 namespace App\Filament\Resources\Admin\Master;
 
-use App\Filament\Resources\Master\BulanResource\Pages;
-use App\Filament\Resources\Master\BulanResource\RelationManagers;
+use App\Filament\Resources\Admin\Master\BulanResource\Pages;
+use App\Filament\Resources\Admin\Master\BulanResource\RelationManagers;
 use App\Models\Admin\Bulan;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Actions\BulkAction;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use PhpParser\Node\Stmt\Label;
 
 class BulanResource extends Resource
 {
@@ -35,6 +38,12 @@ class BulanResource extends Resource
                 Forms\Components\TextInput::make('bulan')
                     ->required()
                     ->maxLength(255),
+                Select::make('tahun_id')
+                    ->label('Tahun')
+                    ->relationship('tahun', 'tahun', fn($query) => $query->orderBy('id', 'asc'))
+                    ->searchable()
+                    ->preload()
+                    ->required(),
             ]);
     }
 
@@ -44,16 +53,26 @@ class BulanResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('nomor')
                     ->label('No')
-                    ->sortable()
+                    // ->sortable()
                     ->state(
                         fn($record, $livewire) => (($livewire->getTablePage() - 1) * $livewire->getTableRecordsPerPage()) +
                             $livewire->getTableRecords()->search($record) + 1
                     ),
                 Tables\Columns\TextColumn::make('bulan')
-                    ->label('Bulan'),
+                    ->label('Bulan')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('tahun.tahun')
+                    ->label('Tahun')
+                    ->searchable()
+                    ->sortable()
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('tahun_id')
+                    ->label('Filter Tahun')
+                    ->relationship('tahun', 'tahun') // relasi tahun dari model Bulan
+                    ->searchable()
+                    ->preload(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

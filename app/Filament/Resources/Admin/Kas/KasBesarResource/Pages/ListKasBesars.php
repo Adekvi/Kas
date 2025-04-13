@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Kas\KasBesarResource\Pages;
+namespace App\Filament\Resources\Admin\Kas\KasBesarResource\Pages;
 
 use App\Filament\Resources\Admin\Kas\KasBesarResource;
 use Filament\Actions;

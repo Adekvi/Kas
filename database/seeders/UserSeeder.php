@@ -125,7 +125,9 @@ class UserSeeder extends Seeder
                     'name' => $user['name'],
                     'password' => bcrypt($user['password']),
                     'role' => 'user',
-                    'no_wa' => ''
+                    'no_wa' => '',
+                    'created_at' => now(),
+                    'updated_at' => now()
                 ]
             );
         }

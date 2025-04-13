@@ -2,14 +2,16 @@
 
 namespace App\Filament\Resources\Admin\Kas;
 
-use App\Filament\Resources\Kas\UangMasukResource\Pages;
-use App\Filament\Resources\Kas\UangMasukResource\RelationManagers;
+use App\Filament\Resources\Admin\Kas\UangMasukResource\Pages;
+use App\Filament\Resources\Admin\Kas\UangMasukResource\RelationManagers;
 use App\Models\Admin\Uangmasuk;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -31,28 +33,52 @@ class UangMasukResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Grid::make(3)
-                    ->schema([
-                        Forms\Components\Select::make('warga_id')
-                            ->label('Nama Warga')
-                            ->relationship('warga', 'nama', fn($query) => $query->orderBy('id', 'asc')) // Relasi ke tabel `bulans`
-                            ->searchable()
-                            ->preload()
-                            ->required(),
+                Forms\Components\Select::make('warga_id')
+                    ->label('Nama Warga')
+                    ->relationship('warga', 'nama', fn($query) => $query->orderBy('id', 'asc')) // Relasi ke tabel `bulans`
+                    ->searchable()
+                    ->preload()
+                    ->required(),
 
-                        Forms\Components\TextInput::make('jumlah')
-                            ->label('Jumlah')
-                            ->prefix('Rp')
-                            ->numeric() // Pastikan hanya menerima angka
-                            ->required(),
+                Forms\Components\TextInput::make('jumlah')
+                    ->label('Jumlah')
+                    ->prefix('Rp.')
+                    ->numeric() // Pastikan hanya menerima angka
+                    ->required(),
 
-                        Select::make('bulans')
-                            ->label('Bulan')
-                            ->relationship('bulans', 'bulan', fn($query) => $query->orderBy('id'))
-                            ->multiple()
-                            ->preload()
-                            ->required(),
-                    ]),
+                // Dropdown untuk memilih tahun
+                Forms\Components\Select::make('tahun_id')
+                    ->label('Tahun')
+                    ->options(function () {
+                        return \App\Models\Admin\Tahun::orderBy('tahun', 'asc')->pluck('tahun', 'id');
+                    })
+                    ->reactive() // Reaktif, untuk merubah bulan ketika tahun dipilih
+                    ->required(),
+
+                // Dropdown untuk memilih bulan, berdasarkan tahun yang dipilih
+                Forms\Components\Select::make('bulans')
+                    ->label('Bulan')
+                    ->options(function ($get) {
+                        // Menyaring bulan berdasarkan tahun yang dipilih
+                        $tahunId = $get('tahun_id');
+                        return \App\Models\Admin\Bulan::where('tahun_id', $tahunId)
+                            ->orderBy('id')
+                            ->pluck('bulan', 'id');
+                    })
+                    ->getOptionLabelFromRecordUsing(fn($record) => "{$record->bulan} - {$record->tahun->tahun}")
+                    ->multiple() // Untuk memilih lebih dari satu bulan
+                    ->preload()
+                    ->required(),
+
+                FileUpload::make('foto')
+                    ->label('Bukti Pembayaran')
+                    ->image()
+                    ->imageEditor() // Aktifkan image editor bawaan Filament
+                    ->imageCropAspectRatio('1:1') // Atur rasio crop (opsional, bisa 16:9, 4:3, dll)
+                    ->imagePreviewHeight('150')
+                    ->directory('bukti-pembayaran')
+                    ->visibility('public')
+                    ->required(false),
 
                 Forms\Components\Textarea::make('keterangan')
                     ->label('Keterangan')
@@ -84,17 +110,25 @@ class UangMasukResource extends Resource
 
                 Tables\Columns\TextColumn::make('jumlah')
                     ->label('Jumlah')
-                    ->money('IDR') // ✅ Format ke Rupiah
+                    ->money('Rp.') // ✅ Format ke Rupiah
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('bulan.bulan') // ✅ Relasi ke tabel bulan
+                TextColumn::make('bulans')
                     ->label('Bulan')
+                    ->getStateUsing(fn($record) => $record->bulans->pluck('bulan')->join(', '))
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('keterangan')
                     ->label('Keterangan')
                     ->limit(50)
                     ->searchable(),
+
+                Tables\Columns\ImageColumn::make('foto')
+                    ->label('Bukti')
+                    ->disk('public') // sesuaikan jika kamu pakai disk lain
+                    ->height(50)
+                    ->width(50)
+                    ->circular(), // opsional: biar bentuknya lingkaran
 
                 // ✅ Menampilkan status sebagai kalimat
                 Tables\Columns\TextColumn::make('status')

@@ -10,22 +10,24 @@
     {{-- Konten utama --}}
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
-        <img src="assets/img/hero-bg-2.jpg" alt="" class="hero-bg">
+        <img src="{{ asset('landing/img/bg-2.png') }}" alt="" class="hero-bg">
 
         <div class="container">
             <div class="row gy-4 justify-content-between">
                 <div class="col-lg-4 order-lg-last hero-img" data-aos="zoom-out" data-aos-delay="100">
-                    <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+                    <img src="{{ asset('landing/img/Logo-Psht.jpg') }}" class="img-fluid animated" alt=""
+                        style="border-radius: 5px">
                 </div>
 
                 <div class="col-lg-6  d-flex flex-column justify-content-center" data-aos="fade-in">
-                    <h1>Build Your Landing Page With <span>Bootslander</span></h1>
-                    <p>We are team of talented designers making websites with Bootstrap</p>
+                    <h1>Website Resmi <br> <span>Psht Rayon Kedumulyo</span></h1>
+                    <p>Persaudaraan Setia Hati Terate - Ranting Sukolilo</p>
                     <div class="d-flex">
-                        <a href="#about" class="btn-get-started">Get Started</a>
-                        <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8"
+                        <a href="{{ url('user/login') }}" class="btn-get-started">
+                            <i class="bi bi-door-open-fill"></i> Login</a>
+                        {{-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8"
                             class="glightbox btn-watch-video d-flex align-items-center"><i
-                                class="bi bi-play-circle"></i><span>Watch Video</span></a>
+                                class="bi bi-play-circle"></i><span>Watch Video</span></a> --}}
                     </div>
                 </div>
 
@@ -51,7 +53,168 @@
 
     </section><!-- /Hero Section -->
 
-    <!-- About Section -->
+
+
+    <!-- Details Section -->
+    <section id="details" class="details section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Sejarah Singkat</h2>
+            <div><span class="description-title">Persaudaraan Setia Hati Terate</span></div>
+            <p>
+                <li>Asal Usul Setia Hati
+                    Sebelum PSHT berdiri, telah ada ajaran spiritual dan bela diri yang dikenal sebagai aliran Setia
+                    Hati. Ajaran ini mengajarkan keselarasan antara olahraga, spiritualitas, dan akhlak luhur.</li>
+            </p>
+            <h3>
+                <span class="description-title">
+                    <li><strong>Tokoh Pendiri</strong></li>
+                </span>
+            </h3>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+
+            <div class="row gy-4 align-items-center features-item">
+                <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+                    <img src="{{ asset('landing/img/details-1.png') }}" class="img-fluid" alt=""
+                        style="border-radius: 15px">
+                </div>
+                <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Ki Ngabehi Soerodiwiryo</h3>
+                    <p style="text-align: justify;">
+                        Ki Ngabehi Soerodiwiryo adalah sosok pendiri awal dari ajaran Setia Hati, yang menjadi fondasi
+                        utama lahirnya Persaudaraan Setia Hati Terate (PSHT). Ia merupakan tokoh spiritual dan pendekar
+                        silat yang hidup pada masa awal abad ke-20, dikenal memiliki kepribadian yang kuat, berwibawa,
+                        dan sangat mendalami ilmu kanuragan serta kebatinan.
+
+                        Pada sekitar tahun 1903, Ki Ngabehi Soerodiwiryo mulai mengembangkan ajaran Setia Hati di daerah
+                        Winongo, Madiun. Ia mendirikan sebuah komunitas spiritual yang bernama “Sedulur Tunggal Kecer”,
+                        yang kemudian berkembang menjadi Persaudaraan Setia Hati (PSH). Ajaran ini tidak hanya
+                        mengajarkan teknik bela diri, tetapi juga mengedepankan nilai-nilai moral, pengendalian diri,
+                        dan pencapaian kesempurnaan batin. Tujuannya bukan semata-mata untuk menjadi kuat, tetapi agar
+                        seseorang mampu menaklukkan hawa nafsunya sendiri dan menjadi manusia yang mulia.
+
+                        Ciri khas dari ajaran Ki Soerodiwiryo adalah sistem pembelajarannya yang tertutup dan bersifat
+                        khusus, hanya diberikan kepada murid-murid yang dianggap siap secara lahir dan batin. Beliau
+                        menekankan pentingnya persaudaraan sejati, kejujuran, dan keteguhan hati dalam menghadapi
+                        kehidupan. Ajarannya kemudian menyebar secara terbatas, namun sangat berpengaruh kepada
+                        murid-muridnya yang memiliki semangat luhur, salah satunya adalah Ki Hadjar Hardjo Oetomo.
+                    </p>
+                    {{-- <ul>
+                        <li><i class="bi bi-check"></i><span> Ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat.</span></li>
+                        <li><i class="bi bi-check"></i> <span>Duis aute irure dolor in reprehenderit in voluptate
+                                velit.</span></li>
+                        <li><i class="bi bi-check"></i> <span>Ullam est qui quos consequatur eos accusamus.</span>
+                        </li>
+                    </ul> --}}
+                </div>
+            </div><!-- Features Item -->
+
+            <div class="row gy-4 align-items-center features-item">
+                <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out"
+                    data-aos-delay="200">
+                    <img src="{{ asset('landing/img/details-2.png') }}" class="img-fluid" alt=""
+                        style="border-radius: 15px">
+                </div>
+                <div class="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Ki Hadjar Harjo Oetomo</h3>
+                    <p style="text-align: justify;">
+                        Ki Hadjar Hardjo Oetomo adalah murid langsung dari Ki Ngabehi Soerodiwiryo yang memiliki
+                        pandangan visioner dan semangat besar untuk mengembangkan ajaran Setia Hati ke dalam bentuk
+                        organisasi yang lebih terbuka dan sistematis. Ia adalah seorang pejuang kemerdekaan yang juga
+                        dikenal sebagai guru silat yang arif dan bijaksana.
+
+                        Menyadari bahwa ajaran Setia Hati memiliki nilai luhur yang harus diwariskan secara luas, Ki
+                        Hadjar merasa perlu mendirikan wadah pendidikan bela diri yang tidak hanya terbatas pada
+                        kalangan tertentu. Maka, pada tahun 1922 di Pilangkenceng, Kabupaten Madiun, beliau mendirikan
+                        sebuah organisasi pencak silat dengan nama:
+
+                        Persaudaraan Setia Hati Terate (PSHT)
+
+                        Nama “Terate” (teratai) dipilih sebagai simbol filosofi luhur: walau hidup di air keruh, bunga
+                        teratai tetap tumbuh indah dan harum. Ini melambangkan harapan agar setiap warga PSHT bisa
+                        menjadi pribadi yang kuat dan berbudi luhur di tengah tantangan kehidupan.
+
+                        Berbeda dengan gurunya, Ki Hadjar mengembangkan ajaran Setia Hati secara terbuka dan
+                        terstruktur, menyusun kurikulum, latihan jasmani dan rohani, serta sistem pengesahan yang jelas.
+                        Tujuan utama PSHT yang ia tanamkan adalah:
+
+                        “Mendidik manusia yang berbudi luhur, tahu benar dan salah, dan bertakwa kepada Tuhan Yang Maha
+                        Esa.”
+
+                        Di bawah bimbingan Ki Hadjar, PSHT berkembang dari sebuah perguruan lokal menjadi organisasi
+                        besar yang tersebar ke berbagai daerah. Beliau meletakkan dasar-dasar organisasi modern yang
+                        kelak menjadi pondasi utama pertumbuhan PSHT di masa-masa berikutnya.
+                    </p>
+                </div>
+            </div><!-- Features Item -->
+
+            <div class="container section-title mt-5" data-aos="fade-up">
+                <h3>
+                    <span class="description-title">
+                        <li><strong>Perkembangan dan Kepemimpinan Organisasi</strong></li>
+                    </span>
+                </h3>
+                <p>Dalam perjalanan sejarah Persaudaraan Setia Hati Terate (PSHT), dua tokoh besar memiliki peran
+                    penting dalam menjaga eksistensi dan kelangsungan organisasi ini di era modern, yaitu Imam
+                    Koesoepangat dan Tarmadji Boedi Harsono.</p>
+            </div><!-- End Section Title -->
+
+            <div class="row gy-4 align-items-center features-item">
+                <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out">
+                    <img src="{{ asset('landing/img/details-3.png') }}" class="img-fluid" alt=""
+                        style="border-radius: 15px">
+                </div>
+                <div class="col-md-7" data-aos="fade-up">
+                    <h3>Imam Koesoepangat</h3>
+                    <p style="text-align: justify;">Imam Koesoepangat dikenal sebagai tokoh kharismatik yang menjabat
+                        sebagai Ketua Umum PSHT Pusat
+                        Madiun sejak tahun 1981 hingga wafatnya pada tahun 1997. Di bawah kepemimpinannya, PSHT
+                        mengalami perkembangan yang signifikan. Ia berhasil membawa PSHT menjadi organisasi yang lebih
+                        terstruktur secara administratif dan hukum, serta memperluas pengaruhnya ke seluruh penjuru
+                        Indonesia bahkan hingga ke luar negeri. Imam Koesoepangat dihormati karena kemampuannya menjaga
+                        nilai-nilai luhur ajaran Setia Hati Terate, dengan menekankan pentingnya persaudaraan, budi
+                        pekerti, dan pengendalian diri. Beliau dikenal sebagai pemimpin yang bijaksana dan tegas, yang
+                        mampu menyatukan warga PSHT dari berbagai latar belakang.</p>
+                    <ul>
+                        <li><i class="bi bi-check"></i> <span> Ketua Umum PSHT (1974 sd 1977)</span></li>
+                        <li><i class="bi bi-check"></i><span> Modernisasi organisasi, memperluas PSHT</span></li>
+                    </ul>
+                </div>
+            </div><!-- Features Item -->
+
+            <div class="row gy-4 align-items-center features-item">
+                <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out">
+                    <img src="{{ asset('landing/img/details-4.png') }}" class="img-fluid" alt=""
+                        style="border-radius: 15px">
+                </div>
+                <div class="col-md-7 order-2 order-md-1" data-aos="fade-up">
+                    <h3>Tarmadji Boedi Harsono</h3>
+                    <p style="text-align: justify;">
+                        Sepeninggal Imam Koesoepangat, tongkat estafet kepemimpinan dilanjutkan oleh Tarmadji Boedi
+                        Harsono, yang kemudian diangkat sebagai Ketua Umum melalui Musyawarah Nasional. Dalam masa
+                        kepemimpinannya, Tarmadji terus melanjutkan perjuangan untuk memperkuat legalitas dan struktur
+                        organisasi PSHT. Ia turut mendorong pengesahan badan hukum PSHT agar organisasi ini semakin kuat
+                        di mata hukum, sekaligus terus menjaga ajaran dan falsafah yang diwariskan para pendiri. Di
+                        bawah arahannya, PSHT semakin dikenal secara nasional dan internasional, serta aktif dalam
+                        kegiatan pencak silat baik di dalam maupun luar negeri.
+                    </p>
+                    <ul>
+                        <li><i class="bi bi-check"></i><span> Ketua Umum PSHT (1981 sd 2014)</span></li>
+                        <li><i class="bi bi-check"></i><span> Penguatan struktur hukum dan
+                                ekspansi PSHT</span></li>
+                    </ul>
+                </div>
+            </div><!-- Features Item -->
+
+        </div>
+
+    </section><!-- /Details Section -->
+
+    {{-- <!-- About Section -->
     <section id="about" class="about section">
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -111,9 +274,9 @@
             </div>
         </div>
 
-    </section><!-- /About Section -->
+    </section><!-- /About Section --> --}}
 
-    <!-- Features Section -->
+    {{-- <!-- Features Section -->
     <section id="features" class="features section">
 
         <div class="container">
@@ -208,7 +371,7 @@
 
         </div>
 
-    </section><!-- /Features Section -->
+    </section><!-- /Features Section --> --}}
 
     <!-- Stats Section -->
     <section id="stats" class="stats section light-background">
@@ -259,112 +422,13 @@
 
     </section><!-- /Stats Section -->
 
-    <!-- Details Section -->
-    <section id="details" class="details section">
-
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Details</h2>
-            <div><span>Check Our</span> <span class="description-title">Details</span></div>
-        </div><!-- End Section Title -->
-
-        <div class="container">
-
-            <div class="row gy-4 align-items-center features-item">
-                <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
-                    <img src="assets/img/details-1.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-                    <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore
-                        magna aliqua.
-                    </p>
-                    <ul>
-                        <li><i class="bi bi-check"></i><span> Ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat.</span></li>
-                        <li><i class="bi bi-check"></i> <span>Duis aute irure dolor in reprehenderit in voluptate
-                                velit.</span></li>
-                        <li><i class="bi bi-check"></i> <span>Ullam est qui quos consequatur eos accusamus.</span>
-                        </li>
-                    </ul>
-                </div>
-            </div><!-- Features Item -->
-
-            <div class="row gy-4 align-items-center features-item">
-                <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out"
-                    data-aos-delay="200">
-                    <img src="assets/img/details-2.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Corporis temporibus maiores provident</h3>
-                    <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore
-                        magna aliqua.
-                    </p>
-                    <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum
-                    </p>
-                </div>
-            </div><!-- Features Item -->
-
-            <div class="row gy-4 align-items-center features-item">
-                <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out">
-                    <img src="assets/img/details-3.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-md-7" data-aos="fade-up">
-                    <h3>Sunt consequatur ad ut est nulla consectetur reiciendis animi voluptas</h3>
-                    <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe
-                        odit aut quia voluptatem hic voluptas dolor doloremque.</p>
-                    <ul>
-                        <li><i class="bi bi-check"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat.</span></li>
-                        <li><i class="bi bi-check"></i><span> Duis aute irure dolor in reprehenderit in voluptate
-                                velit.</span></li>
-                        <li><i class="bi bi-check"></i> <span>Facilis ut et voluptatem aperiam. Autem soluta ad
-                                fugiat</span>.</li>
-                    </ul>
-                </div>
-            </div><!-- Features Item -->
-
-            <div class="row gy-4 align-items-center features-item">
-                <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out">
-                    <img src="assets/img/details-4.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-md-7 order-2 order-md-1" data-aos="fade-up">
-                    <h3>Quas et necessitatibus eaque impedit ipsum animi consequatur incidunt in</h3>
-                    <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore
-                        magna aliqua.
-                    </p>
-                    <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum
-                    </p>
-                </div>
-            </div><!-- Features Item -->
-
-        </div>
-
-    </section><!-- /Details Section -->
-
     <!-- Gallery Section -->
     <section id="gallery" class="gallery section">
 
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <h2>Gallery</h2>
-            <div><span>Check Our</span> <span class="description-title">Gallery</span></div>
+            <h2>Galeri</h2>
+            <div><span>Foto</span> <span class="description-title">Event / Kegiatan</span></div>
         </div><!-- End Section Title -->
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -373,64 +437,80 @@
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="assets/img/gallery/gallery-1.jpg" class="glightbox" data-gallery="images-gallery">
-                            <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
+                        <a href="{{ asset('landing/img/gallery/galeri-1.jpg') }}" class="glightbox"
+                            data-gallery="images-gallery">
+                            <img src="{{ asset('landing/img/gallery/galeri-1.jpg') }}" alt=""
+                                class="img-fluid">
                         </a>
                     </div>
                 </div><!-- End Gallery Item -->
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="assets/img/gallery/gallery-2.jpg" class="glightbox" data-gallery="images-gallery">
-                            <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
+                        <a href="{{ asset('landing/img/gallery/galeri-2.jpg') }}" class="glightbox"
+                            data-gallery="images-gallery">
+                            <img src="{{ asset('landing/img/gallery/galeri-2.jpg') }}" alt=""
+                                class="img-fluid">
                         </a>
                     </div>
                 </div><!-- End Gallery Item -->
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="assets/img/gallery/gallery-3.jpg" class="glightbox" data-gallery="images-gallery">
-                            <img src="assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
+                        <a href="{{ asset('landing/img/gallery/galeri-3.jpg') }}" class="glightbox"
+                            data-gallery="images-gallery">
+                            <img src="{{ asset('landing/img/gallery/galeri-3.jpg') }}" alt=""
+                                class="img-fluid">
                         </a>
                     </div>
                 </div><!-- End Gallery Item -->
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="assets/img/gallery/gallery-4.jpg" class="glightbox" data-gallery="images-gallery">
-                            <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
+                        <a href="{{ asset('landing/img/gallery/galeri-4.jpg') }}" class="glightbox"
+                            data-gallery="images-gallery">
+                            <img src="{{ asset('landing/img/gallery/galeri-4.jpg') }}" alt=""
+                                class="img-fluid">
                         </a>
                     </div>
                 </div><!-- End Gallery Item -->
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="assets/img/gallery/gallery-5.jpg" class="glightbox" data-gallery="images-gallery">
-                            <img src="assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
+                        <a href="{{ asset('landing/img/gallery/galeri-5.jpg') }}" class="glightbox"
+                            data-gallery="images-gallery">
+                            <img src="{{ asset('landing/img/gallery/galeri-5.jpg') }}" alt=""
+                                class="img-fluid">
                         </a>
                     </div>
                 </div><!-- End Gallery Item -->
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="assets/img/gallery/gallery-6.jpg" class="glightbox" data-gallery="images-gallery">
-                            <img src="assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
+                        <a href="{{ asset('landing/img/gallery/galeri-6.jpg') }}" class="glightbox"
+                            data-gallery="images-gallery">
+                            <img src="{{ asset('landing/img/gallery/galeri-6.jpg') }}" alt=""
+                                class="img-fluid">
                         </a>
                     </div>
                 </div><!-- End Gallery Item -->
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="assets/img/gallery/gallery-7.jpg" class="glightbox" data-gallery="images-gallery">
-                            <img src="assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
+                        <a href="{{ asset('landing/img/gallery/galeri-7.jpg') }}" class="glightbox"
+                            data-gallery="images-gallery">
+                            <img src="{{ asset('landing/img/gallery/galeri-7.jpg') }}" alt=""
+                                class="img-fluid">
                         </a>
                     </div>
                 </div><!-- End Gallery Item -->
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="assets/img/gallery/gallery-8.jpg" class="glightbox" data-gallery="images-gallery">
-                            <img src="assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
+                        <a href="{{ asset('landing/img/gallery/galeri-8.jpg') }}" class="glightbox"
+                            data-gallery="images-gallery">
+                            <img src="{{ asset('landing/img/gallery/galeri-8.jpg') }}" alt=""
+                                class="img-fluid">
                         </a>
                     </div>
                 </div><!-- End Gallery Item -->
@@ -441,35 +521,35 @@
 
     </section><!-- /Gallery Section -->
 
-    <!-- Testimonials Section -->
+    {{-- <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section dark-background">
 
-        <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
+        <img src="{{ asset('landing/img/testimonials-bg.jpg') }}" class="testimonials-bg" alt="">
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
 
             <div class="swiper init-swiper">
                 <script type="application/json" class="swiper-config">
-    {
-      "loop": true,
-      "speed": 600,
-      "autoplay": {
-        "delay": 5000
-      },
-      "slidesPerView": "auto",
-      "pagination": {
-        "el": ".swiper-pagination",
-        "type": "bullets",
-        "clickable": true
-      }
-    }
-  </script>
+                    {
+                    "loop": true,
+                    "speed": 600,
+                    "autoplay": {
+                        "delay": 5000
+                    },
+                    "slidesPerView": "auto",
+                    "pagination": {
+                        "el": ".swiper-pagination",
+                        "type": "bullets",
+                        "clickable": true
+                    }
+                    }
+                </script>
                 <div class="swiper-wrapper">
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img"
-                                alt="">
+                            <img src="{{ asset('landing/img/testimonials/testimonials-1.jpg') }}"
+                                class="testimonial-img" alt="">
                             <h3>Saul Goodman</h3>
                             <h4>Ceo &amp; Founder</h4>
                             <div class="stars">
@@ -489,8 +569,8 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img"
-                                alt="">
+                            <img src="{{ asset('landing/img/testimonials/testimonials-2.jpg') }}"
+                                class="testimonial-img" alt="">
                             <h3>Sara Wilsson</h3>
                             <h4>Designer</h4>
                             <div class="stars">
@@ -510,8 +590,8 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img"
-                                alt="">
+                            <img src="{{ asset('landing/img/testimonials/testimonials-3.jpg') }}"
+                                class="testimonial-img" alt="">
                             <h3>Jena Karlis</h3>
                             <h4>Store Owner</h4>
                             <div class="stars">
@@ -531,8 +611,8 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img"
-                                alt="">
+                            <img src="{{ asset('landing/img/testimonials/testimonials-4.jpg') }}"
+                                class="testimonial-img" alt="">
                             <h3>Matt Brandon</h3>
                             <h4>Freelancer</h4>
                             <div class="stars">
@@ -552,8 +632,8 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img"
-                                alt="">
+                            <img src="{{ asset('landing/img/testimonials/testimonials-5.jpg') }}"
+                                class="testimonial-img" alt="">
                             <h3>John Larson</h3>
                             <h4>Entrepreneur</h4>
                             <div class="stars">
@@ -577,9 +657,9 @@
 
         </div>
 
-    </section><!-- /Testimonials Section -->
+    </section><!-- /Testimonials Section --> --}}
 
-    <!-- Team Section -->
+    {{-- <!-- Team Section -->
     <section id="team" class="team section">
 
         <!-- Section Title -->
@@ -594,7 +674,8 @@
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="member">
-                        <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                        <div class="pic"><img src="{{ asset('landing/img/team/team-1.jpg') }}" class="img-fluid"
+                                alt="">
                         </div>
                         <div class="member-info">
                             <h4>Walter White</h4>
@@ -611,7 +692,8 @@
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="member">
-                        <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                        <div class="pic"><img src="{{ asset('landing/img/team/team-2.jpg') }}" class="img-fluid"
+                                alt="">
                         </div>
                         <div class="member-info">
                             <h4>Sarah Jhonson</h4>
@@ -628,7 +710,8 @@
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="member">
-                        <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                        <div class="pic"><img src="{{ asset('landing/img/team/team-3.jpg') }}" class="img-fluid"
+                                alt="">
                         </div>
                         <div class="member-info">
                             <h4>William Anderson</h4>
@@ -647,9 +730,9 @@
 
         </div>
 
-    </section><!-- /Team Section -->
+    </section><!-- /Team Section --> --}}
 
-    <!-- Pricing Section -->
+    {{-- <!-- Pricing Section -->
     <section id="pricing" class="pricing section">
 
         <!-- Section Title -->
@@ -735,9 +818,9 @@
 
         </div>
 
-    </section><!-- /Pricing Section -->
+    </section><!-- /Pricing Section --> --}}
 
-    <!-- Faq Section -->
+    {{-- <!-- Faq Section -->
     <section id="faq" class="faq section light-background">
 
         <div class="container-fluid">
@@ -797,22 +880,39 @@
                 </div>
 
                 <div class="col-lg-5 order-1 order-lg-2">
-                    <img src="assets/img/faq.jpg" class="img-fluid" alt="" data-aos="zoom-in"
-                        data-aos-delay="100">
+                    <img src="{{ asset('landing/img/faq.jpg') }}" class="img-fluid" alt=""
+                        data-aos="zoom-in" data-aos-delay="100">
                 </div>
             </div>
 
         </div>
 
-    </section><!-- /Faq Section -->
+    </section><!-- /Faq Section --> --}}
+
+    <section id="logo" class="logo section light-background">
+        <div class="container-fluid">
+            <div class="row gy-4">
+                <div class="logo-container text-center align-items-center">
+                    <img src="{{ asset('landing/img/logo/ipsi.png') }}" alt="Logo 1" class="logo img-fluid"
+                        style="max-width: 170px; margin: 20px;">
+                    <img src="{{ asset('landing/img/logo/psht.png') }}" alt="Logo 2" class="logo img-fluid"
+                        style="max-width: 120px; margin: 20px;">
+                    <img src="{{ asset('landing/img/logo/ranting.png') }}" alt="Logo 3" class="logo img-fluid"
+                        style="max-width: 180px; margin: 20px;">
+                    <img src="{{ asset('landing/img/logo/rayon.png') }}" alt="Logo 4" class="logo img-fluid"
+                        style="max-width: 180px; margin: 5px;">
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
 
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <h2>Contact</h2>
-            <div><span>Check Our</span> <span class="description-title">Contact</span></div>
+            <h2>Kontak</h2>
+            <div><span>Narahubung</span> <span class="description-title">Organisasi</span></div>
         </div><!-- End Section Title -->
 
         <div class="container" data-aos="fade" data-aos-delay="100">
@@ -823,63 +923,38 @@
                     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
                         <i class="bi bi-geo-alt flex-shrink-0"></i>
                         <div>
-                            <h3>Address</h3>
-                            <p>A108 Adam Street, New York, NY 535022</p>
+                            <h3>Alamat</h3>
+                            <p>Jln. Jelaprang - Gua wareh RT.04 RW.05 Dukuh Kedu, Kedumulyo</p>
                         </div>
                     </div><!-- End Info Item -->
 
                     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                         <i class="bi bi-telephone flex-shrink-0"></i>
                         <div>
-                            <h3>Call Us</h3>
-                            <p>+1 5589 55488 55</p>
+                            <h3>No. WhatsApp</h3>
+                            <p>085866090206</p>
                         </div>
                     </div><!-- End Info Item -->
 
                     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                         <i class="bi bi-envelope flex-shrink-0"></i>
                         <div>
-                            <h3>Email Us</h3>
-                            <p>info@example.com</p>
+                            <h3>Email</h3>
+                            <p>pshtrayonkedumulyo@gmail.com</p>
                         </div>
                     </div><!-- End Info Item -->
 
                 </div>
 
                 <div class="col-lg-8">
-                    <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
-                        data-aos-delay="200">
-                        <div class="row gy-4">
-
-                            <div class="col-md-6">
-                                <input type="text" name="name" class="form-control" placeholder="Your Name"
-                                    required="">
-                            </div>
-
-                            <div class="col-md-6 ">
-                                <input type="email" class="form-control" name="email" placeholder="Your Email"
-                                    required="">
-                            </div>
-
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" name="subject" placeholder="Subject"
-                                    required="">
-                            </div>
-
-                            <div class="col-md-12">
-                                <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                            </div>
-
-                            <div class="col-md-12 text-center">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                                <button type="submit">Send Message</button>
-                            </div>
-
+                    <div class="card">
+                        <div class="card-body">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.691855286828!2d110.9594504740357!3d-6.9273880678046975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70c9005073fdc1%3A0x8054ed1f116922f6!2sPADEPOKAN%20(Pendopo%20PSHT%20Rayon%20Kedumulyo%20Guoware)!5e0!3m2!1sid!2sid!4v1744484722954!5m2!1sid!2sid"
+                                width="700" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
-                    </form>
+                    </div>
                 </div><!-- End Contact Form -->
 
             </div>

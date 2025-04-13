@@ -14,8 +14,8 @@ class Warga extends Model
         return $this->hasMany(Uangmasuk::class, 'warga_id');
     }
 
-    public function user()
+    public function users()
     {
-        return $this->hasMany(User::class, 'warga_id', 'id'); // Ubah ke foreign key yang sesuai
+        return $this->hasMany(User::class, 'warga_id'); // relasi balik dari warga ke banyak user
     }
 }

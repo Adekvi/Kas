@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('uang')->nullable();
             $table->string('barang')->nullable();
             $table->foreignId('bulan_id')->nullable()->constrained('bulans')->nullOnDelete();
+            $table->foreignId('tahun_id')->nullable()->constrained('tahuns')->nullOnDelete();
             $table->string('keterangan')->nullable();
             $table->boolean('status')->default(false);
             $table->timestamps();

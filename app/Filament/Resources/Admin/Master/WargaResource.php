@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources\Admin\Master;
 
-use App\Filament\Resources\WargaResource\Pages;
-use App\Filament\Resources\WargaResource\RelationManagers;
+use App\Filament\Resources\Admin\Master\WargaResource\Pages;
+use App\Filament\Resources\Admin\Master\WargaResource\RelationManagers;
 use App\Models\Admin\Warga;
 use Filament\Forms;
 use Filament\Forms\Form;

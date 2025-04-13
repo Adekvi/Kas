@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Master\BulanResource\Pages;
+namespace App\Filament\Resources\Admin\Master\BulanResource\Pages;
 
 use App\Filament\Resources\Admin\Master\BulanResource;
 use Filament\Actions;

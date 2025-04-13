@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('masuk_id')->constrained('uangmasuks')->onDelete('cascade');
             $table->foreignId('keluar_id')->constrained('uangkeluars')->onDelete('cascade');
-            $table->date('tgl_bulan')->nullable();
+            $table->foreignId('tahun_id')->constrained('tahuns')->onDelete('cascade');
             $table->foreignId('bulan_id')->constrained('bulans')->onDelete('cascade');
             $table->foreignId('sumbangan_id')->nullable()->constrained('sumbangans')->onDelete('set null');
             $table->integer('total_saldo');

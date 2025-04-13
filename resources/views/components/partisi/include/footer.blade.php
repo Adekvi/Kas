@@ -4,13 +4,14 @@
         <div class="row gy-4">
             <div class="col-lg-4 col-md-6 footer-about">
                 <a href="index.html" class="logo d-flex align-items-center">
-                    <span class="sitename">Bootslander</span>
+                    <img src="{{ asset('landing/img/ht.png') }}" alt="">
+                    <span class="sitename">Psht - Rayon Kedu</span>
                 </a>
                 <div class="footer-contact pt-3">
-                    <p>A108 Adam Street</p>
-                    <p>New York, NY 535022</p>
-                    <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-                    <p><strong>Email:</strong> <span>info@example.com</span></p>
+                    <p>Jln. Jelaprang - Gua wareh RT.04 RW.05 Dukuh Kedu, Kedumulyo</p>
+                    <p>Dk. Kedu - Ds. Kedumulyo</p>
+                    <p class="mt-3"><strong>Telepon:</strong> <span>085866090206</span></p>
+                    <p><strong>Email:</strong> <span>pshtrayonkedumulyo@gmail.com</span></p>
                 </div>
                 <div class="social-links d-flex mt-4">
                     <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -21,36 +22,36 @@
             </div>
 
             <div class="col-lg-2 col-md-3 footer-links">
-                <h4>Useful Links</h4>
+                <h4>Menu</h4>
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Terms of service</a></li>
-                    <li><a href="#">Privacy policy</a></li>
+                    <li><a href="#">Profil</a></li>
+                    <li><a href="#">Pendaftaran</a></li>
+                    <li><a href="#">Galeri</a></li>
+                    <li><a href="#">Keangotaan</a></li>
                 </ul>
             </div>
 
             <div class="col-lg-2 col-md-3 footer-links">
-                <h4>Our Services</h4>
+                <h4>Event dan Kegiatan</h4>
                 <ul>
-                    <li><a href="#">Web Design</a></li>
-                    <li><a href="#">Web Development</a></li>
-                    <li><a href="#">Product Management</a></li>
-                    <li><a href="#">Marketing</a></li>
-                    <li><a href="#">Graphic Design</a></li>
+                    <li><a href="#">Sarasehan Halal Bi Halal</a></li>
+                    <li><a href="#">Sedekah Bumi (Apitan)</a></li>
+                    <li><a href="#">Hari Kemerdekaan 17 Agustus</a></li>
+                    <li><a href="#">Latihan Bersama</a></li>
+                    <li><a href="#">Rutinan Bulanan</a></li>
                 </ul>
             </div>
 
             <div class="col-lg-4 col-md-12 footer-newsletter">
-                <h4>Our Newsletter</h4>
-                <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+                <h4>Kritik dan Saran</h4>
+                <p>Persaudaraan Setia Hati Terate - Rayon Kedumulyo</p>
                 <form action="forms/newsletter.php" method="post" class="php-email-form">
                     <div class="newsletter-form"><input type="email" name="email"><input type="submit"
-                            value="Subscribe"></div>
+                            value="Kirim"></div>
                     <div class="loading">Loading</div>
                     <div class="error-message"></div>
-                    <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+                    <div class="sent-message">Thank you!</div>
                 </form>
             </div>
 
@@ -58,16 +59,9 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">Bootslander</strong> <span>All Rights
+        <p>© <span>Copyright <?= date('Y') ?></span> <strong class="px-1 sitename">Psht - Rayon Kedu</strong> <span>All
+                Rights
                 Reserved</span></p>
-        <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you've purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a
-                href="https://themewagon.com">ThemeWagon</a>
-        </div>
     </div>
 
 </footer>

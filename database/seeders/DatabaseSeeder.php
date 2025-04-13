@@ -25,6 +25,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
+            TahunSeeder::class,
+        ]);
+
+        $this->call([
             BulanSeeder::class,
         ]);
 

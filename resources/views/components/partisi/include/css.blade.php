@@ -1,4 +1,4 @@
-<link href="{{ asset('landing/img/favicon.png') }}" rel="icon">
+<link href="{{ asset('landing/img/ht.png') }}" rel="icon">
 <link href="{{ asset('landing/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
 <!-- Fonts -->

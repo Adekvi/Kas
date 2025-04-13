@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('uangmasuks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('warga_id')->nullable()->constrained('wargas')->onDelete('cascade');
-            $table->integer('jumlah'); // Gunakan integer untuk angka
-            // $table->foreignId('bulan_id')->nullable()->constrained('bulans')->nullOnDelete();
+            $table->integer('jumlah');
             $table->boolean('status')->default(false);
             $table->string('keterangan')->nullable();
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }
